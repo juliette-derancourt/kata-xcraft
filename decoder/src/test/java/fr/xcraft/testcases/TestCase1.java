@@ -43,6 +43,14 @@ class TestCase1 {
             module1output = Module1.process(input);
         }
 
+        @Test 
+        void module1_intermediary_output() {
+            String expected = """
+                    
+                    """;;
+            assertEquals(expected, module1output);
+        }
+
         @Test
         void module2_intermediary_output() {
             String expected = "KBsKASEWZ3AMFG4XWCRSXT0eBnVXdWx0AXsjV2IdGhtaBiZjZWkVUnpoVGUXWhxwVGQdIXQBHm1+E3VoExA=";

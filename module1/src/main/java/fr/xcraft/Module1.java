@@ -7,13 +7,23 @@ import java.util.regex.Pattern;
 public class Module1 {
 
     public static String process(String input) {
-        Pattern pattern= Pattern.compile("```(.*)```");
+        Pattern pattern= Pattern.compile("```(.*)```", Pattern.MULTILINE);
         Matcher matcher=pattern.matcher(input);
+        StringBuilder output = new StringBuilder();
+        if (matcher.find()){ // Rapport de progrès : ça match pas
+            String output1=matcher.group(1);
+            output.append(output1);
+            output.append("\n\n");
+        }
         if (matcher.find()){
-            String output=matcher.group(1);
-            System.out.println(output);
-        }else{
-            System.out.println("pas de code");
+            String output1=matcher.group(1);
+            output.append(output1);
+            output.append("\n\n");
+        }
+        if (matcher.find()){
+            String output1=matcher.group(1);
+            output.append(output1);
+            output.append("\n\n");
         }
 
         return input;
