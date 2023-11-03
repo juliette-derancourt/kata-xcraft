@@ -3,7 +3,10 @@ package fr.xcraft;
 public class Module3 {
 
     public static String process(String input) {
-        return "key1 -> key1 -> key2 -> key1";
+        String[] splitInput = input.split(" \\[x");
+        String key = splitInput[0];
+        String times = splitInput[1];
+        return "";
     }
 
 }
