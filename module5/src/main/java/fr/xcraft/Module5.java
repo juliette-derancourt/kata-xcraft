@@ -40,4 +40,14 @@ public class Module5 {
         return "";
     }
 
+    String xor(String s1, String s2) {
+        byte[] a = s1.getBytes();
+        byte[] b = s2.getBytes();
+        byte[] out = new byte[a.length];
+        for (int i = 0; i < a.length; i++) {
+            out[i] = (byte) (a[i] ^ b[i%b.length]);
+        }
+        return new String(out, StandardCharsets.UTF_8);
+    }
+
 }
