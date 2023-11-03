@@ -9,6 +9,15 @@ public class Module5 {
      * Example:
      * keysOrder = abcde -> fghij -> klmno -> pqrst
      * encodedMessage = message XOR abcd XOR ghij XOR klm XOR rst
+     *
+     * Pour chaque caractère du message décodé, appliquer un XOR sur la valeur binaire du caractère
+     * avec chaque clé dans l'ordre (donc si ya 4 clés key1 -> key1 -> key2 -> key1, on le fait 4 fois avec les bonnes clés)
+     *
+     * Attention les clés sont transformées selon l'exemple tout en haut :
+     * * la première clé on enlève le dernier caractère
+     * * la deuxième clé on enlève le premier caractère
+     * * la troisième clé on enlève les 2 derniers caractères
+     * * la quatrième clé on enlève les 2 premiers caractères
      */
     public static String process(String encodedMessage, String keysOrder, String keys) {
 
