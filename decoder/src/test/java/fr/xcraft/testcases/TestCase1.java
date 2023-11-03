@@ -58,6 +58,10 @@ class TestCase1 {
         void module3_should_transform_x_times_in_arrow() {
             assertEquals("key1 -> key1", Module3.process("key1 [x2]"));
         }
+           @Test
+        void module3_should_not_transform_single() {
+            assertEquals("key1", Module3.process("key1"));
+        }
 
         @Test
         void module4_intermediary_output() {
