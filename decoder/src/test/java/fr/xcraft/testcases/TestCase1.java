@@ -75,6 +75,15 @@ class TestCase1 {
             assertEquals(expected, Module4.process(module1output));
         }
 
+        @Test
+        void module4_should_split_by_separator() {
+            String expected = """
+                    key1
+                    B08D207
+                    """;
+            assertEquals(expected, Module4.process("key1;k0XMR0W;0x❌❌❌✅"));
+        }
+
     }
 
 }
