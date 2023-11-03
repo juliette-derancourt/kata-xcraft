@@ -3,10 +3,34 @@ package fr.xcraft;
 public class Module2 {
 
     public static String process(String input) {
-        if(input == "") {
-            return "KBsKASEWZ3AMFG4XWCRSXT0eBnVXdWx0AXsjV2IdGhtaBiZjZWkVUnpoVGUXWhxwVGQdIXQBHm1+E3VoExA=";
+        String output = "";
+        String[] listOfMorseLetter = input.split(" ");
+        for (int i = 0; i < listOfMorseLetter.length; i++) {
+
+            output += fromMorse(listOfMorseLetter[i]);
+        }
+        return output;
+    }
+
+    private static String fromMorse(String s) {
+
+        if (s.equals("...--")) {
+            return "3";
+        }
+        if (s.equals("-....")) {
+            return "6";
+        }
+        if (s.equals(".----")) {
+            return "1";
+        }
+        if (s.equals("-.-")) {
+            return "K";
+        }
+        if (s.equals("-...")) {
+            return "B";
         }
         return "";
     }
+
 
 }
