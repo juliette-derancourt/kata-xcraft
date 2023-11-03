@@ -1,6 +1,7 @@
 package fr.xcraft;
 
 import java.math.BigInteger;
+import java.util.HexFormat;
 
 public class Module4 {
 
@@ -12,7 +13,8 @@ public class Module4 {
     }
 
     private static String toHexaAndFilter(String toDecode, String patternToKeep) {
-        return toDecode;
+        String toHexa = toHexa(toDecode);
+        return toHexa.substring(4);
 
         // to hexa
         //✅ signifie garder
@@ -20,7 +22,12 @@ public class Module4 {
     }
 
     public static String toHexa(String toDecode) {
-        return String.format("%04x", new BigInteger(1, toDecode.getBytes(/*YOUR_CHARSET?*/))).toUpperCase();
+        StringBuilder output= new StringBuilder();
+        for (int i = 0; i < toDecode.length(); i++) {
+            output.append(String.format("%020x", toDecode.getBytes()[i])
+                              .toUpperCase());
+        }
+        return output.toString();
     }
 
 }
