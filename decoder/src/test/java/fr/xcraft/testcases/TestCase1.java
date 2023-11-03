@@ -4,6 +4,7 @@ import fr.xcraft.Module1;
 import fr.xcraft.Module2;
 import fr.xcraft.Module3;
 import fr.xcraft.Module4;
+import fr.xcraft.Module5;
 import fr.xcraft.SecretMessageDecoder;
 import fr.xcraft.util.FileContent;
 import fr.xcraft.util.FileContentParameterResolver;
@@ -82,6 +83,20 @@ class TestCase1 {
                     B08D207
                     """;
             assertEquals(expected, Module4.process("key1;k0XMR0W;0x❌❌❌✅"));
+        }
+
+        @Test
+        void module5_output() {
+            String module2output = "KBsKASEWZ3AMFG4XWCRSXT0eBnVXdWx0AXsjV2IdGhtaBiZjZWkVUnpoVGUXWhxwVGQdIXQBHm1+E3VoExA=";
+            String module3output = "key1 -> key1 -> key2 -> key1";
+            String module4output = """
+                    key1
+                    B08D207
+                    key2
+                    62734D49343156
+                    """;
+            String expectedHash = "dHn+pUsg1wUwIm3vmt59pS6xw38aE1E8Ug30w35H1qE=";
+            assertEquals(expectedHash, hash(Module5.process(module2output, module3output, module4output)));
         }
 
     }
