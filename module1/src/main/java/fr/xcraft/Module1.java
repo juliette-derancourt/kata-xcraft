@@ -1,32 +1,15 @@
 package fr.xcraft;
 
-import java.io.Console;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Module1 {
 
     public static String process(String input) {
-        Pattern pattern= Pattern.compile("```(.*)```", Pattern.MULTILINE);
+        Pattern pattern= Pattern.compile("```\\n(.*)\\n```");
         Matcher matcher=pattern.matcher(input);
-        StringBuilder output = new StringBuilder();
-        if (matcher.find()){ // Rapport de progrès : ça match pas
-            String output1=matcher.group(1);
-            output.append(output1);
-            output.append("\n\n");
-        }
-        if (matcher.find()){
-            String output1=matcher.group(1);
-            output.append(output1);
-            output.append("\n\n");
-        }
-        if (matcher.find()){
-            String output1=matcher.group(1);
-            output.append(output1);
-            output.append("\n\n");
-        }
-
-        return input;
+        matcher.find();
+        return matcher.group(0); // la regex trouve, mais le test module1_should_get_triple_backquoted_content on a pas réussi à extraire juste la chaine "code"
     }
 
 }

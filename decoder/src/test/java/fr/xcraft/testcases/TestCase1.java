@@ -34,6 +34,20 @@ class TestCase1 {
     }
 
     @Nested
+    class Module1IntermediaryTests {
+        @Test
+        void module1_should_get_triple_backquoted_content() {
+            String textInput = """
+                    chose pas attendue
+                    ```
+                    code
+                    ```
+                    """;
+            assertEquals("code", Module1.process(textInput));
+        }
+    }
+
+    @Nested
     class IntermediaryTests {
 
         private String module1output;
